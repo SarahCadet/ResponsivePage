@@ -18,12 +18,13 @@ import androidx.compose.ui.unit.dp
 import com.example.responsivescreen.ui.theme.ResponsiveScreenTheme
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             ResponsiveScreenTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize(), topBar = { TopAppBar(title = { Text("Adaptive Layout") }) }) { innerPadding ->
                     ResponsiveScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
